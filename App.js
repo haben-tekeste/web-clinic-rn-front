@@ -7,7 +7,7 @@ import { View } from "react-native";
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor="#eeeeee" />
+      <StatusBar backgroundColor="#f3eef6" />
       <Stack />
     </NavigationContainer>
   );

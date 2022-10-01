@@ -5,7 +5,7 @@ import {
   TextInput,
   FlatList,
   KeyboardAvoidingView,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { Text, Card } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
@@ -46,11 +46,20 @@ export default ({ navigation }) => {
   ];
   return (
     <KeyboardAvoidingView style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{flex:1}}>
+      <ScrollView contentContainerStyle={{ flex: 1 }}>
         <View style={HomeStyle.container}>
           <View style={HomeStyle.txtContainer}>
-            <Text style={{color:'#AEAEAE'}}> Remaining Time for meeting </Text>
-            <Text style={{...HomeStyle.text,fontWeight:'700',fontFamily:'serif'}}>
+            <Text style={{ color: "#AEAEAE", fontFamily: "serif" }}>
+              {" "}
+              Remaining Time for meeting{" "}
+            </Text>
+            <Text
+              style={{
+                ...HomeStyle.text,
+                fontWeight: "700",
+                fontFamily: "serif",
+              }}
+            >
               No meeting for today
             </Text>
           </View>
@@ -70,10 +79,18 @@ export default ({ navigation }) => {
           </View>
           <Spacer />
           <View
-            style={{ backgroundColor: "white", height: 700, borderRadius: 40}}
+            style={{ backgroundColor: "white", height: 700, borderRadius: 40 }}
           >
             <View style={{ ...HomeStyle.categories, marginTop: 20 }}>
-              <Text h4 style={{ fontWeight: "600", marginBottom: 15 }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  marginBottom: 15,
+                  fontFamily: "serif",
+                  fontSize: 23,
+                  marginHorizontal: 20,
+                }}
+              >
                 Categories
               </Text>
               <FlatList
@@ -85,8 +102,17 @@ export default ({ navigation }) => {
               />
             </View>
             <Spacer />
+            <Spacer />
             <View style={HomeStyle.categories}>
-              <Text h4 style={{ fontWeight: "600", marginBottom: 15 }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  marginBottom: 15,
+                  fontFamily: "serif",
+                  fontSize: 23,
+                  marginHorizontal: 20,
+                }}
+              >
                 Top Doctors
               </Text>
               <FlatList
@@ -126,13 +152,10 @@ const HomeStyle = StyleSheet.create({
   },
   input: {
     height: 40,
-    width:260,
-    padding:5
+    width: 260,
+    padding: 5,
   },
   icon: {
     marginRight: 5,
-  },
-  categories: {
-    marginHorizontal: 25,
   },
 });
