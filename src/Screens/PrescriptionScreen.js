@@ -11,7 +11,7 @@ export default ({ navigation }) => {
 
 const PrescriptionStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#F7EBFF",
+    backgroundColor: "#f3eef6",
     flex: 1,
   },
 });
