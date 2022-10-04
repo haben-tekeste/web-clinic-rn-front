@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import {Text} from 'react-native-elements'
+import { Text } from "react-native-elements";
 
 export default ({ navigation }) => {
   return (
@@ -12,7 +12,7 @@ export default ({ navigation }) => {
 
 const AccountStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#F7EBFF",
+    backgroundColor: "#f3eef6",
     flex: 1,
   },
 });

@@ -6,7 +6,7 @@ import {
   FontAwesome5,
   MaterialCommunityIcons,
   Entypo,
-  Ionicons
+  Ionicons,
 } from "@expo/vector-icons";
 import InboxScreen from "../../Screens/InboxScreen";
 import ScheduleScreen from "../../Screens/ScheduleScreen";
@@ -29,7 +29,7 @@ export default () => {
           backgroundColor: "#F7EBFF",
           elevation: 20,
         },
-        swipeEdgeWidth:100,
+        swipeEdgeWidth: 100,
 
         headerRight: () => {
           return (
@@ -52,10 +52,10 @@ export default () => {
     >
       <Drawer.Screen
         name="Home"
-        component={HomeScreen}
+        component={Tab}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6",elevation:0 },
+          headerStyle: { backgroundColor: "#f3eef6", elevation: 0 },
           drawerIcon: ({ color }) => (
             <Entypo name="home" size={24} color={color} />
           ),
@@ -66,7 +66,7 @@ export default () => {
         component={InboxScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#F7EBFF" },
+          headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="envelope-open-text" size={24} color={color} />
           ),
@@ -77,7 +77,7 @@ export default () => {
         component={ScheduleScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#F7EBFF" },
+          headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <FontAwesome name="calendar" size={24} color={color} />
           ),
@@ -88,7 +88,7 @@ export default () => {
         component={PrescriptionScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#F7EBFF" },
+          headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <MaterialCommunityIcons name="bandage" size={24} color={color} />
           ),
@@ -99,7 +99,7 @@ export default () => {
         component={BillScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#F7EBFF" },
+          headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="money-bill-alt" size={24} color={color} />
           ),
@@ -110,18 +110,19 @@ export default () => {
         component={SubscriptionScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#F7EBFF" },
+          headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="coins" size={24} color={color} />
           ),
         }}
       />
       <Drawer.Screen
-        name="Account Screen"
-        component={AccountScreen}
+        name="Profile"
+        component={Tab}
+        // page="Profile"
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#F7EBFF" },
+          headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <Ionicons name="person" size={24} color={color} />
           ),

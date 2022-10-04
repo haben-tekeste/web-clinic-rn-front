@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, useWindowDimensions } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../../Screens/HomeScreen";
 import BillScreen from "../../Screens/BillScreen";
@@ -8,12 +8,18 @@ import { Entypo, FontAwesome5, Ionicons } from "@expo/vector-icons";
 
 export default () => {
   const Tab = createBottomTabNavigator();
+  const { width, height } = useWindowDimensions();
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
         tabBarStyle: {
           ...tabBarStyle.style,
+          width: width,
+          height: width,
+          borderRadius: width,
+          transform: [{ scaleX: width / 280 }, { translateY: width / 1.4 }],
+          position: "absolute",
           elevation: 0,
           borderTopWidth: 5,
           borderTopColor: "#C69BE0",
@@ -21,7 +27,7 @@ export default () => {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="Homes"
         component={HomeScreen}
         options={{
           headerShown: false,
@@ -29,9 +35,13 @@ export default () => {
             <View>
               <Entypo
                 name="home"
-                size={30}
+                size={25}
                 color={focused ? "#8212A9" : "#E0C8EE"}
-                style={{ position: "absolute", top: -190, left: 29 }}
+                style={{
+                  position: "relative",
+                  top: -height / 6,
+                  left: width / 12,
+                }}
               />
             </View>
           ),
@@ -46,9 +56,9 @@ export default () => {
             <View>
               <FontAwesome5
                 name="money-bill-alt"
-                size={30}
+                size={25}
                 color={focused ? "#8212A9" : "#E0C8EE"}
-                style={{ position: "absolute", top: -190, left: -18 }}
+                style={{ position: "relative", top: -height / 6 }}
               />
             </View>
           ),
@@ -63,9 +73,13 @@ export default () => {
             <View>
               <Ionicons
                 name="person"
-                size={30}
+                size={25}
                 color={focused ? "#8212A9" : "#E0C8EE"}
-                style={{ position: "absolute", top: -190, left: -65 }}
+                style={{
+                  position: "relative",
+                  top: -height / 6,
+                  left: -width / 12,
+                }}
               />
             </View>
           ),
@@ -77,14 +91,7 @@ export default () => {
 
 const tabBarStyle = StyleSheet.create({
   style: {
-    position: "absolute",
-    height: 500,
-    width: 500,
-    bottom: -370,
-    left: -45,
-    borderRadius: 500 / 2,
     borderWidth: 5,
     borderColor: "#C69BE0",
-    transform: [{ scaleX: 1.3 }],
   },
 });
