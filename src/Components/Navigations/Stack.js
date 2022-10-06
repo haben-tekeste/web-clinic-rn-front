@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SigninScreen from "../../Screens/SigninScreen";
 import SignupScreen from "../../Screens/SignupScreen";
 import Drawer from "./Drawer";
+import DoctorDetails from "../../Screens/DoctorDetails";
 
 export default () => {
   const Stack = createNativeStackNavigator();
@@ -29,6 +30,18 @@ export default () => {
         component={Drawer}
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="DoctorDetails"
+        component={DoctorDetails}
+        options={{
+          headerTitle: "",
+          headerStyle: {
+            backgroundColor: "#f3eef6",
+          },
+          headerShadowVisible: false,
+          headerTintColor: "black",
         }}
       />
     </Stack.Navigator>

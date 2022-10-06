@@ -1,10 +1,18 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, useWindowDimensions } from "react-native";
 import { Text, Image, Badge } from "react-native-elements";
 
 const DoctorCard = ({ item }) => {
+  const { width, height } = useWindowDimensions();
   return (
-    <View style={{ ...DoctorStyles.card, backgroundColor: item.color }}>
+    <View
+      style={{
+        ...DoctorStyles.card,
+        backgroundColor: item.color,
+        width: width / 2,
+        height: height / 4,
+      }}
+    >
       <Image
         source={require("../../assets/femaleDoctor.png")}
         style={DoctorStyles.img}
@@ -34,8 +42,6 @@ const DoctorStyles = StyleSheet.create({
     height: 220,
   },
   card: {
-    height: 220,
-    width: 210,
     marginHorizontal: 20,
     borderColor: "red",
     borderRadius: 15,

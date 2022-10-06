@@ -1,11 +1,17 @@
 import React from "react";
 import { Text } from "react-native-elements";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, useWindowDimensions } from "react-native";
 
 const ImageCards = ({ item }) => {
+  const { width, height } = useWindowDimensions();
   return (
     <View
-      style={{ ...ImagesCardsStyles.imgContainer, backgroundColor: item.color }}
+      style={{
+        ...ImagesCardsStyles.imgContainer,
+        backgroundColor: item.color,
+        height: width / 3.5,
+        width: width / 3.5,
+      }}
     >
       <Image
         source={require(`../../assets/brain.png`)}
@@ -27,8 +33,6 @@ const ImagesCardsStyles = StyleSheet.create({
     marginHorizontal: 20,
     borderColor: "red",
     borderRadius: 15,
-    width: 110,
-    height: 110,
     alignItems: "center",
     justifyContent: "space-around",
     padding: 10,
