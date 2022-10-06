@@ -13,11 +13,8 @@ import ScheduleScreen from "../../Screens/ScheduleScreen";
 import BillScreen from "../../Screens/BillScreen";
 import SubscriptionScreen from "../../Screens/SubscriptionScreen";
 import PrescriptionScreen from "../../Screens/PrescriptionScreen";
-import HomeScreen from "../../Screens/HomeScreen";
 import CustomDrawer from "./CustomDrawer";
 import { TouchableOpacity } from "react-native";
-import { Pressable } from "react-native";
-import AccountScreen from "../../Screens/AccountScreen";
 export default () => {
   const Drawer = createDrawerNavigator();
   return (
@@ -29,7 +26,7 @@ export default () => {
           backgroundColor: "#F7EBFF",
           elevation: 20,
         },
-        swipeEdgeWidth: 100,
+        swipeEdgeWidth: 40,
 
         headerRight: () => {
           return (
@@ -119,7 +116,6 @@ export default () => {
       <Drawer.Screen
         name="Profile"
         component={Tab}
-        // page="Profile"
         options={{
           headerTitle: "",
           headerStyle: { backgroundColor: "#f3eef6" },

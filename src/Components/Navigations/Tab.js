@@ -18,7 +18,10 @@ export default () => {
           width: width,
           height: width,
           borderRadius: width,
-          transform: [{ scaleX: width / 280 }, { translateY: width / 1.4 }],
+          transform: [
+            { scaleX: width / (width / 1.5) },
+            { translateY: width / 1.4 },
+          ],
           position: "absolute",
           elevation: 0,
           borderTopWidth: 5,
@@ -41,6 +44,7 @@ export default () => {
                   position: "relative",
                   top: -height / 6,
                   left: width / 12,
+                  transform: [{ scaleY: 1.2 }, { scaleX: 0.8 }],
                 }}
               />
             </View>
@@ -58,7 +62,11 @@ export default () => {
                 name="money-bill-alt"
                 size={25}
                 color={focused ? "#8212A9" : "#E0C8EE"}
-                style={{ position: "relative", top: -height / 6 }}
+                style={{
+                  position: "relative",
+                  top: -height / 6,
+                  transform: [{ scaleY: 1.2 }, { scaleX: 0.8 }],
+                }}
               />
             </View>
           ),
@@ -72,13 +80,14 @@ export default () => {
           tabBarIcon: ({ focused }) => (
             <View>
               <Ionicons
-                name="person"
+                name="person-sharp"
                 size={25}
                 color={focused ? "#8212A9" : "#E0C8EE"}
                 style={{
                   position: "relative",
                   top: -height / 6,
                   left: -width / 12,
+                  transform: [{ scaleY: 1.2 }, { scaleX: 0.8 }],
                 }}
               />
             </View>

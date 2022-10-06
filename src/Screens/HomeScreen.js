@@ -6,6 +6,7 @@ import {
   FlatList,
   KeyboardAvoidingView,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { Text, Card } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
@@ -98,7 +99,11 @@ export default ({ navigation }) => {
                 horizontal
                 data={mockData}
                 keyExtractor={(item) => item.title}
-                renderItem={({ item }) => <ImageCards item={item} />}
+                renderItem={({ item }) => (
+                  <TouchableOpacity>
+                    <ImageCards item={item} />
+                  </TouchableOpacity>
+                )}
               />
             </View>
             <Spacer />
@@ -120,7 +125,13 @@ export default ({ navigation }) => {
                 horizontal
                 data={doctorsData}
                 keyExtractor={(item) => item.name}
-                renderItem={({ item }) => <DoctorCard item={item} />}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("DoctorDetails")}
+                  >
+                    <DoctorCard item={item} />
+                  </TouchableOpacity>
+                )}
               />
             </View>
           </View>

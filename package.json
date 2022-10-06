@@ -21,7 +21,8 @@
     "react-native": "0.69.5",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^2.6.2",
-    "react-native-reanimated": "^2.10.0"
+    "react-native-reanimated": "^2.10.0",
+    "expo-linear-gradient": "~11.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
