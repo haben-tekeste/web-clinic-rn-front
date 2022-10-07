@@ -7,12 +7,14 @@ import {
   MaterialCommunityIcons,
   Entypo,
   Ionicons,
+  Fontisto
 } from "@expo/vector-icons";
 import InboxScreen from "../../Screens/InboxScreen";
 import ScheduleScreen from "../../Screens/ScheduleScreen";
 import BillScreen from "../../Screens/BillScreen";
 import SubscriptionScreen from "../../Screens/SubscriptionScreen";
 import PrescriptionScreen from "../../Screens/PrescriptionScreen";
+import DoctorsList from "../../Screens/DoctorsList";
 import CustomDrawer from "./CustomDrawer";
 import { TouchableOpacity } from "react-native";
 export default () => {
@@ -77,6 +79,17 @@ export default () => {
           headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <FontAwesome name="calendar" size={24} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Doctors"
+        component={DoctorsList}
+        options={{
+          headerTitle: "Doctors",
+          headerStyle: { backgroundColor: "#f3eef6" },
+          drawerIcon: ({ color }) => (
+            <Fontisto name="doctor" size={24} color={color} />
           ),
         }}
       />

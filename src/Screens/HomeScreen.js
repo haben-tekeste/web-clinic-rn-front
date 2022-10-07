@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   TouchableOpacity,
+  Button
 } from "react-native";
 import { Text, Card } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
