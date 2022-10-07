@@ -4,6 +4,7 @@ import SigninScreen from "../../Screens/SigninScreen";
 import SignupScreen from "../../Screens/SignupScreen";
 import Drawer from "./Drawer";
 import DoctorDetails from "../../Screens/DoctorDetails";
+import DoctorsList from "../../Screens/DoctorsList";
 
 export default () => {
   const Stack = createNativeStackNavigator();
@@ -44,6 +45,18 @@ export default () => {
           headerTintColor: "black",
         }}
       />
+      {/* <Stack.Screen
+        name="DoctorsList"
+        component={DoctorsList}
+        options={{
+          headerTitle: "",
+          headerStyle: {
+            backgroundColor: "#f3eef6",
+          },
+          headerShadowVisible: false,
+          headerTintColor: "black",
+        }}
+      /> */}
     </Stack.Navigator>
   );
 };

@@ -42,7 +42,7 @@ export default () => {
                 color={focused ? "#8212A9" : "#E0C8EE"}
                 style={{
                   position: "relative",
-                  top: -height / 6,
+                  top: -height / 6.5,
                   left: width / 12,
                   transform: [{ scaleY: 1.2 }, { scaleX: 0.8 }],
                 }}
@@ -85,7 +85,7 @@ export default () => {
                 color={focused ? "#8212A9" : "#E0C8EE"}
                 style={{
                   position: "relative",
-                  top: -height / 6,
+                  top: -height / 6.5,
                   left: -width / 12,
                   transform: [{ scaleY: 1.2 }, { scaleX: 0.8 }],
                 }}
