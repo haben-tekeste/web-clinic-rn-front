@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,6 +6,7 @@ import {
   useWindowDimensions,
   Image,
   ImageBackground,
+  FlatList,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { TouchableOpacity } from "react-native";
@@ -79,7 +80,9 @@ const DetailsCard = ({ width, height }) => {
             backgroundColor: "#D166F6",
           }}
         >
-          <Text>Start Conversation</Text>
+          <Text style={{ color: "white", fontWeight: "400" }}>
+            Start Conversation
+          </Text>
         </TouchableOpacity>
       </View>
     </LinearGradient>
@@ -88,6 +91,33 @@ const DetailsCard = ({ width, height }) => {
 
 export default ({ navigation }) => {
   const { width, height } = useWindowDimensions();
+  const arr = [
+    {
+      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+      title: "First Item",
+    },
+    {
+      id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+      title: "Second Item",
+    },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e29d72",
+      title: "Third Item",
+    },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e29d7122",
+      title: "Fourth Item",
+    },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e29d72ad",
+      title: "Fifth Item",
+    },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e29d72asdf",
+      title: "Sixths Item",
+    },
+  ];
+  const [select, setSelect] = useState(false);
   return (
     <View style={DetailsStyle.container}>
       <DetailsCard width={width} height={height} />
