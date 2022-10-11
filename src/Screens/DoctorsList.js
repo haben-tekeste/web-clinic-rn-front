@@ -59,7 +59,7 @@ const DoctorsList = () => {
   ];
   return (
     <SafeAreaView>
-      <ScrollView style={{ backgroundColor: "#ebe4f0",height:'100%' }}>
+      <View style={{ backgroundColor: "#f3eef6", height: "100%" }}>
         {/* <Text style={{ fontSize: "22", textAlign: "center",marginTop:6 }}>
           Doctors List
         </Text> */}
@@ -103,7 +103,7 @@ const DoctorsList = () => {
             )}
           />
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -115,19 +115,19 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
     justifyContent: "flex-start",
-    alignItems:'center',
+    alignItems: "center",
     padding: 8,
-    marginHorizontal:12,
-    marginBottom:18,
-    borderRadius:10,
-    backgroundColor:'white',
+    marginHorizontal: 12,
+    marginBottom: 18,
+    borderRadius: 10,
+    backgroundColor: "white",
   },
   img: {
     width: 70,
     height: 70,
     borderRadius: 50,
     borderWidth: 2,
-    borderColor:'#ddd',
+    borderColor: "#ddd",
   },
   ratings: {
     justifyContent: "center",

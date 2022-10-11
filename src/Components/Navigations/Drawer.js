@@ -7,7 +7,7 @@ import {
   MaterialCommunityIcons,
   Entypo,
   Ionicons,
-  Fontisto
+  Fontisto,
 } from "@expo/vector-icons";
 import InboxScreen from "../../Screens/InboxScreen";
 import ScheduleScreen from "../../Screens/ScheduleScreen";
@@ -79,17 +79,6 @@ export default () => {
           headerStyle: { backgroundColor: "#f3eef6" },
           drawerIcon: ({ color }) => (
             <FontAwesome name="calendar" size={24} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Doctors"
-        component={DoctorsList}
-        options={{
-          headerTitle: "Doctors",
-          headerStyle: { backgroundColor: "#f3eef6" },
-          drawerIcon: ({ color }) => (
-            <Fontisto name="doctor" size={24} color={color} />
           ),
         }}
       />
