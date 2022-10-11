@@ -45,7 +45,7 @@ export default () => {
           headerTintColor: "black",
         }}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="DoctorsList"
         component={DoctorsList}
         options={{
@@ -56,7 +56,7 @@ export default () => {
           headerShadowVisible: false,
           headerTintColor: "black",
         }}
-      /> */}
+      />
     </Stack.Navigator>
   );
 };

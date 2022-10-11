@@ -7,7 +7,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   TouchableOpacity,
-  Button
+  Button,
 } from "react-native";
 import { Text, Card } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
@@ -110,17 +110,35 @@ export default ({ navigation }) => {
             <Spacer />
             <Spacer />
             <View style={HomeStyle.categories}>
-              <Text
+              <View
                 style={{
-                  fontWeight: "bold",
-                  marginBottom: 15,
-                  fontFamily: "serif",
-                  fontSize: 23,
-                  marginHorizontal: 20,
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                Top Doctors
-              </Text>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    marginBottom: 15,
+                    fontFamily: "serif",
+                    fontSize: 23,
+                    marginHorizontal: 20,
+                  }}
+                >
+                  Top Doctors
+                </Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("DoctorsList")}
+                  style={{
+                    marginBottom: 15,
+                    fontFamily: "serif",
+                    marginHorizontal: 20,
+                  }}
+                >
+                  <Text style={{ color: "blue" }}> See all</Text>
+                </TouchableOpacity>
+              </View>
               <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal
