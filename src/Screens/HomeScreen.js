@@ -162,7 +162,7 @@ export default ({ navigation }) => {
 
 const HomeStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#f3eef6",
+    backgroundColor: "#fcfaff",
     flex: 1,
   },
   text: {
