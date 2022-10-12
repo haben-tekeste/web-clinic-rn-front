@@ -1,5 +1,4 @@
 import React from "react";
-import { View, Text } from "react-native";
 import Credentials from "../Components/Credentials";
 
 export default ({ navigation }) => {

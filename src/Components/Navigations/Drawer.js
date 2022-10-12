@@ -54,7 +54,7 @@ export default () => {
         component={Tab}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6", elevation: 0 },
+          headerStyle: { backgroundColor: "#fcfaff", elevation: 0 },
           drawerIcon: ({ color }) => (
             <Entypo name="home" size={24} color={color} />
           ),
@@ -65,7 +65,7 @@ export default () => {
         component={InboxScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6" },
+          headerStyle: { backgroundColor: "#fcfaff" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="envelope-open-text" size={24} color={color} />
           ),
@@ -76,7 +76,7 @@ export default () => {
         component={ScheduleScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6" },
+          headerStyle: { backgroundColor: "#fcfaff" },
           drawerIcon: ({ color }) => (
             <FontAwesome name="calendar" size={24} color={color} />
           ),
@@ -87,7 +87,7 @@ export default () => {
         component={PrescriptionScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6" },
+          headerStyle: { backgroundColor: "#fcfaff" },
           drawerIcon: ({ color }) => (
             <MaterialCommunityIcons name="bandage" size={24} color={color} />
           ),
@@ -98,7 +98,7 @@ export default () => {
         component={BillScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6" },
+          headerStyle: { backgroundColor: "#fcfaff" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="money-bill-alt" size={24} color={color} />
           ),
@@ -109,7 +109,7 @@ export default () => {
         component={SubscriptionScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6" },
+          headerStyle: { backgroundColor: "#fcfaff" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="coins" size={24} color={color} />
           ),
@@ -120,7 +120,7 @@ export default () => {
         component={Tab}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#f3eef6" },
+          headerStyle: { backgroundColor: "#fcfaff" },
           drawerIcon: ({ color }) => (
             <Ionicons name="person" size={24} color={color} />
           ),

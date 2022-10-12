@@ -59,7 +59,7 @@ const DoctorsList = () => {
   ];
   return (
     <SafeAreaView>
-      <View style={{ backgroundColor: "#f3eef6", height: "100%" }}>
+      <View style={{ backgroundColor: "#fcfaff", height: "100%" }}>
         {/* <Text style={{ fontSize: "22", textAlign: "center",marginTop:6 }}>
           Doctors List
         </Text> */}

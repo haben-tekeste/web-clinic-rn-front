@@ -16,13 +16,14 @@
     "@rneui/themed": "^0.0.0-edge.2",
     "expo": "~46.0.9",
     "expo-font": "~10.2.0",
+    "expo-linear-gradient": "~11.4.0",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
     "react-native": "0.69.6",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-reanimated": "~2.9.1",
-    "expo-linear-gradient": "~11.4.0"
+    "react-native-select-dropdown": "^2.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
