@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 import Spacer from "../Components/Spacer";
 import ScheduleCard from "../Components/ScheduleCard";
 
-export default ({ navigation }) => {
+export default () => {
   const today = new Date();
   const dd = today.getDate();
   const mm = today.getMonth() + 1;
@@ -66,48 +66,53 @@ export default ({ navigation }) => {
       date: `${dd}/${mm}/${yyyy}`,
       time: "10:30 AM",
     },
-  ])
+  ]);
 
-  // console.log(nearestVisit);
   return (
     <View style={ScheduleStyle.container}>
-      <Spacer>
-        <Text style={ScheduleStyle.heading}>Nearest Visit</Text>
-      </Spacer>
-      {nearestVisit.length ? (
+      <View style={{ flex: 1, top: 100 }}>
+        <Spacer>
+          <Text style={ScheduleStyle.heading}>Nearest Visit</Text>
+        </Spacer>
+
         <FlatList
-        showsHorizontalScrollIndicator='false'
-        style={{height:100}}
-        horizontal
-        data={nearestVisit}
-        keyExtractor={(item) => item.date}
-        renderItem={({ item }) => <ScheduleCard details={item} />}
-      />
-      ) : (
-        <Text style={{fontSize:22, textAlign:'center', color:'#aeaeae'}}>No Appointments for Today</Text>
-      )}
-      <Spacer />
-      <Spacer>
-        <Text style={ScheduleStyle.heading}>Future Visit</Text>
-      </Spacer>
-      <FlatList
-      horizontal
-      showsVerticalScrollIndicator='false'
-        data={futureVisits}
-        keyExtractor={(item) => item.date}
-        renderItem={({ item }) => <ScheduleCard details={item} />}
-      />
+          showsHorizontalScrollIndicator={false}
+          style={{ height: 100 }}
+          horizontal
+          data={nearestVisit}
+          keyExtractor={(item) => item.date + Math.random()}
+          renderItem={({ item }) => {
+            return (
+              <>
+                <ScheduleCard details={item} />
+              </>
+            );
+          }}
+        />
+
+        <Spacer>
+          <Text style={ScheduleStyle.heading}>Future Visit</Text>
+        </Spacer>
+        <FlatList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={futureVisits}
+          keyExtractor={(item) => item.date + Math.random()}
+          renderItem={({ item }) => <ScheduleCard details={item} />}
+        />
+      </View>
     </View>
   );
 };
 
 const ScheduleStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#f9eef9",
+    backgroundColor: "#fcfaff",
     flex: 1,
   },
   heading: {
     fontSize: 20,
-    fontWeight: "600",
+    fontWeight: "750",
+    fontFamily: "serif",
   },
 });

@@ -39,6 +39,7 @@ export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
 
           <Spacer />
           <Spacer />
+          <Spacer />
           <View style={CredentialsStyle.inputViewStyle}>
             <Entypo name="mail" size={30} color="#AEAEAE" />
             <TextInput
@@ -52,6 +53,7 @@ export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
               }}
             />
           </View>
+          <Spacer />
           <Spacer />
           <View style={CredentialsStyle.inputViewStyle}>
             <Entypo name="lock" size={30} color="#AEAEAE" />

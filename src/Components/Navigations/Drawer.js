@@ -7,16 +7,13 @@ import {
   MaterialCommunityIcons,
   Entypo,
   Ionicons,
-  Fontisto,
 } from "@expo/vector-icons";
 import InboxScreen from "../../Screens/InboxScreen";
-import ScheduleScreen from "../../Screens/ScheduleScreen";
 import BillScreen from "../../Screens/BillScreen";
-import SubscriptionScreen from "../../Screens/SubscriptionScreen";
 import PrescriptionScreen from "../../Screens/PrescriptionScreen";
-import DoctorsList from "../../Screens/DoctorsList";
 import CustomDrawer from "./CustomDrawer";
 import { TouchableOpacity } from "react-native";
+import TopTab from "./TopTab";
 export default () => {
   const Drawer = createDrawerNavigator();
   return (
@@ -26,7 +23,6 @@ export default () => {
         drawerType: "slide",
         drawerStyle: {
           backgroundColor: "#F7EBFF",
-          elevation: 20,
         },
         swipeEdgeWidth: 40,
 
@@ -45,7 +41,7 @@ export default () => {
             </TouchableOpacity>
           );
         },
-        drawerActiveBackgroundColor: "#D166F6",
+        drawerActiveBackgroundColor: "#a355e6",
         drawerActiveTintColor: "white",
       }}
     >
@@ -73,7 +69,7 @@ export default () => {
       />
       <Drawer.Screen
         name="Schedule"
-        component={ScheduleScreen}
+        component={TopTab}
         options={{
           headerTitle: "",
           headerStyle: { backgroundColor: "#fcfaff" },
@@ -101,17 +97,6 @@ export default () => {
           headerStyle: { backgroundColor: "#fcfaff" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="money-bill-alt" size={24} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Subscription Screen"
-        component={SubscriptionScreen}
-        options={{
-          headerTitle: "",
-          headerStyle: { backgroundColor: "#fcfaff" },
-          drawerIcon: ({ color }) => (
-            <FontAwesome5 name="coins" size={24} color={color} />
           ),
         }}
       />
