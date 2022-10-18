@@ -3,9 +3,16 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { Image, ImageBackground, Text, View } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
 
 export default (props) => {
+  const { width, height } = useWindowDimensions();
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView>
@@ -18,7 +25,7 @@ export default (props) => {
         <View
           style={{
             flex: 1,
-            height: 550,
+            height: 500,
             justifyContent: "center",
           }}
         >

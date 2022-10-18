@@ -59,7 +59,7 @@ const DoctorsList = () => {
   ];
   return (
     <SafeAreaView>
-      <View style={{ backgroundColor: "#f2ebfc", height: "100%" }}>
+      <View style={{ backgroundColor: "#fcfaff", height: "100%" }}>
         {/* <Text style={{ fontSize: "22", textAlign: "center",marginTop:6 }}>
           Doctors List
         </Text> */}
@@ -121,13 +121,13 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     borderRadius: 10,
     backgroundColor: "#fff",
-    shadowColor: '#171717',
-    shadowOffset:{
-      width:-2,
-      height:4
+    shadowColor: "#171717",
+    shadowOffset: {
+      width: -2,
+      height: 4,
     },
     shadowOpacity: 0.2,
-    shadowRadius:3
+    shadowRadius: 3,
   },
   img: {
     width: 70,

@@ -7,7 +7,8 @@ const Spacer = ({ children }) => {
 
 const Styles = StyleSheet.create({
   spacer: {
-    margin: 15,
+    marginBottom: 15,
+    marginHorizontal: 15,
   },
 });
 
