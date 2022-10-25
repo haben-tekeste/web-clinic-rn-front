@@ -24,15 +24,16 @@ export default ({ dates, year, selectMonth, width }) => {
                   width: width / 5,
                   height: width / 4,
                   borderWidth: item % 3 === 0 ? 1 : null,
+                  borderColor: "#640F82",
                   marginLeft: 30,
                   marginRight: index === dates.length - 1 ? 30 : null,
                   borderRadius: 15,
                   backgroundColor:
                     item % 3 && item !== 7
-                      ? "#f2e3f8"
+                      ? "#DAD4DD"
                       : item === 7
                       ? "#d19aed"
-                      : null,
+                      : "#FFFFFF",
                   alignItems: "center",
                   justifyContent: "space-around",
                 }}

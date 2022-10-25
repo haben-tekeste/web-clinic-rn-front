@@ -76,7 +76,7 @@ const ScheduleCard = ({ details }) => {
         <Pressable style={{ ...cardStyles.btn, backgroundColor: "#dcdedc" }}>
           <Text style={{ fontSize: 15, fontFamily: "serif" }}>Cancel</Text>
         </Pressable>
-        <Pressable style={{ ...cardStyles.btn, backgroundColor: "#a355e6" }}>
+        <Pressable style={{ ...cardStyles.btn, backgroundColor: "#640F82" }}>
           <Text style={{ fontSize: 15, fontFamily: "serif", color: "white" }}>
             Reschedule
           </Text>

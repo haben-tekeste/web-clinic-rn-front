@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, useWindowDimensions } from "react-native";
 import { Text, Image, Badge } from "react-native-elements";
+import { AntDesign } from "@expo/vector-icons";
 
 const DoctorCard = ({ item }) => {
   const { width, height } = useWindowDimensions();
@@ -17,21 +18,29 @@ const DoctorCard = ({ item }) => {
         source={require("../../assets/femaleDoctor.png")}
         style={DoctorStyles.img}
       />
-      <View style={DoctorStyles.tag}>
-        <Text style={{ textAlign: "center", fontFamily: "serif" }}>
-          Dr.{item.name}
-        </Text>
-        <Text
-          style={{ color: "#AEAEAE", textAlign: "center", fontFamily: "serif" }}
-        >
+      <View style={{ ...DoctorStyles.tag, height: height / 12, padding: 10 }}>
+        <Text style={{ fontWeight: "bold" }}>Dr.{item.name}</Text>
+        <Text style={{ color: "#AEAEAE", fontWeight: "bold" }}>
           {item.position}
         </Text>
+        <View style={{ flexDirection: "row", ...DoctorStyles.badge }}>
+          <AntDesign
+            name="star"
+            size={24}
+            color="#f4c58b"
+            style={{ marginHorizontal: 5 }}
+          />
+          <Text
+            style={{
+              marginHorizontal: 5,
+              fontFamily: "serif",
+              fontWeight: "bold",
+            }}
+          >
+            4.5
+          </Text>
+        </View>
       </View>
-      <Badge
-        value={item.rating}
-        status="success"
-        containerStyle={DoctorStyles.badge}
-      />
     </View>
   );
 };
@@ -48,8 +57,6 @@ const DoctorStyles = StyleSheet.create({
     position: "relative",
   },
   tag: {
-    width: 180,
-    height: 45,
     backgroundColor: "white",
     position: "absolute",
     bottom: 8,
@@ -59,9 +66,9 @@ const DoctorStyles = StyleSheet.create({
   },
   badge: {
     position: "absolute",
-    top: 0,
-    right: 0,
-    borderRadius: 8,
+    bottom: 10,
+    right: 10,
+    alignItems: "center",
   },
 });
 

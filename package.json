@@ -13,8 +13,8 @@
     "@react-navigation/drawer": "^6.5.0",
     "@react-navigation/material-top-tabs": "^6.3.0",
     "@react-navigation/native-stack": "^6.9.0",
-    "@rneui/base": "^0.0.0-edge.2",
-    "@rneui/themed": "^0.0.0-edge.2",
+    "@rneui/base": "^4.0.0-rc.6",
+    "@rneui/themed": "^4.0.0-rc.6",
     "expo": "~46.0.9",
     "expo-font": "~10.2.0",
     "expo-linear-gradient": "~11.4.0",
@@ -23,10 +23,10 @@
     "react-native": "0.69.6",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~2.5.0",
+    "react-native-pager-view": "5.4.24",
     "react-native-reanimated": "~2.9.1",
     "react-native-select-dropdown": "^2.0.4",
-    "react-native-tab-view": "^3.3.0",
-    "react-native-pager-view": "5.4.24"
+    "react-native-tab-view": "^3.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

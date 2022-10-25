@@ -13,7 +13,7 @@ export default ({ navigation }) => {
 
 const CancelledStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#fcfaff",
+    backgroundColor: "#F7EEFF",
     flex: 1,
   },
   heading: {

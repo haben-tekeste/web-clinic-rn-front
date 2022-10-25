@@ -14,6 +14,7 @@ import PrescriptionScreen from "../../Screens/PrescriptionScreen";
 import CustomDrawer from "./CustomDrawer";
 import { TouchableOpacity } from "react-native";
 import TopTab from "./TopTab";
+import HomeScreen from "../../Screens/HomeScreen";
 export default () => {
   const Drawer = createDrawerNavigator();
   return (
@@ -41,16 +42,16 @@ export default () => {
             </TouchableOpacity>
           );
         },
-        drawerActiveBackgroundColor: "#a355e6",
+        drawerActiveBackgroundColor: "#640F82",
         drawerActiveTintColor: "white",
       }}
     >
       <Drawer.Screen
         name="Home"
-        component={Tab}
+        component={HomeScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#fcfaff", elevation: 0 },
+          headerStyle: { backgroundColor: "#F7EEFF", elevation: 0 },
           drawerIcon: ({ color }) => (
             <Entypo name="home" size={24} color={color} />
           ),
@@ -61,7 +62,7 @@ export default () => {
         component={InboxScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#fcfaff" },
+          headerStyle: { backgroundColor: "#F7EEFF" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="envelope-open-text" size={24} color={color} />
           ),
@@ -72,7 +73,7 @@ export default () => {
         component={TopTab}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#fcfaff" },
+          headerStyle: { backgroundColor: "#F7EEFF" },
           drawerIcon: ({ color }) => (
             <FontAwesome name="calendar" size={24} color={color} />
           ),
@@ -83,7 +84,7 @@ export default () => {
         component={PrescriptionScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#fcfaff" },
+          headerStyle: { backgroundColor: "#F7EEFF" },
           drawerIcon: ({ color }) => (
             <MaterialCommunityIcons name="bandage" size={24} color={color} />
           ),
@@ -94,7 +95,7 @@ export default () => {
         component={BillScreen}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#fcfaff" },
+          headerStyle: { backgroundColor: "#F7EEFF" },
           drawerIcon: ({ color }) => (
             <FontAwesome5 name="money-bill-alt" size={24} color={color} />
           ),
@@ -105,7 +106,7 @@ export default () => {
         component={Tab}
         options={{
           headerTitle: "",
-          headerStyle: { backgroundColor: "#fcfaff" },
+          headerStyle: { backgroundColor: "#F7EEFF" },
           drawerIcon: ({ color }) => (
             <Ionicons name="person" size={24} color={color} />
           ),
