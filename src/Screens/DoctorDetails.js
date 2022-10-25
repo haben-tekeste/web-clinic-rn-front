@@ -82,7 +82,7 @@ export default ({ navigation }) => {
       <View style={{ alignItems: "center", marginTop: 25 }}>
         <TouchableOpacity
           style={{
-            backgroundColor: "#a355e6",
+            backgroundColor: "#640F82",
             width: width / 1.75,
             justifyContent: "center",
             alignItems: "center",
@@ -103,7 +103,7 @@ export default ({ navigation }) => {
 
 const DetailsStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#fcfaff",
+    backgroundColor: "#F7EEFF",
     flex: 1,
   },
 });

@@ -30,19 +30,31 @@ export default ({ Data, width }) => {
                   width: width / 5,
                   padding: 12,
                   borderWidth: index % 3 === 0 ? 1 : null,
+                  borderColor: "#640F82",
                   marginLeft: 30,
                   marginRight: index === Data.length - 1 ? 30 : null,
                   borderRadius: 15,
                   backgroundColor:
                     index % 3 && index !== 2
-                      ? "#f2e3f8"
+                      ? "#DAD4DD"
                       : index === 2
                       ? "#d19aed"
-                      : null,
+                      : "#FFFFFF",
                   alignItems: "center",
                 }}
               >
-                <Text>{item}</Text>
+                <Text
+                  style={{
+                    color:
+                      index % 3 && index !== 2
+                        ? "black"
+                        : index === 2
+                        ? "white"
+                        : null,
+                  }}
+                >
+                  {item}
+                </Text>
               </View>
             </TouchableOpacity>
           );

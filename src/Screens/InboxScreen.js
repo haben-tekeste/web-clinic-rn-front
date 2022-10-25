@@ -11,7 +11,7 @@ export default ({ navigation }) => {
 
 const InboxStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#fcfaff",
+    backgroundColor: "#F7EEFF",
     flex: 1,
   },
 });

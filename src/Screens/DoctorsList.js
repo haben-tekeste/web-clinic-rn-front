@@ -59,7 +59,7 @@ const DoctorsList = () => {
   ];
   return (
     <SafeAreaView>
-      <View style={{ backgroundColor: "#fcfaff", height: "100%" }}>
+      <View style={{ backgroundColor: "#F7EEFF", height: "100%" }}>
         {/* <Text style={{ fontSize: "22", textAlign: "center",marginTop:6 }}>
           Doctors List
         </Text> */}
@@ -93,7 +93,7 @@ const DoctorsList = () => {
                         alignItems: "center",
                       }}
                     >
-                      <AntDesign name="star" size={20} color="gold" />
+                      <AntDesign name="star" size={24} color="#f4c58b" />
                       <Text style={{ marginLeft: 5 }}>{item.rating}</Text>
                     </View>
                     <Button title="Book Now" />

@@ -37,7 +37,7 @@ export default () => {
         },
         tabBarItemStyle: {
           borderColor: "#AEAEAE",
-          backgroundColor: "#a355e6",
+          backgroundColor: "#640F82",
           marginHorizontal: 2,
           width: width / 3.45,
           borderRadius: 15,

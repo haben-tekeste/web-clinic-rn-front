@@ -13,13 +13,13 @@ export default ({ width, height }) => {
   return (
     <View style={{ alignItems: "center" }}>
       <LinearGradient
-        colors={["rgb(243, 237, 249)", "white"]}
+        colors={["rgba(100, 15, 130, 0.20)", "white"]}
         style={{
           ...DetailsStyle.cardStyle,
           width: width / 1.15,
           height: height / 2.15,
         }}
-        locations={[0.3, 0.7]}
+        locations={[0.1, 0.7]}
       >
         <ImageBackground
           style={{
@@ -78,7 +78,7 @@ export default ({ width, height }) => {
             style={{
               ...DetailsStyle.cardBtnStyle,
               width: width / 1.5,
-              backgroundColor: "#a355e6",
+              backgroundColor: "#640F82",
             }}
           >
             <Text style={{ color: "white", fontWeight: "400" }}>

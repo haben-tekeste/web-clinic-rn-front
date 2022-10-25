@@ -12,7 +12,7 @@ export default ({ navigation }) => {
 
 const AccountStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#fcfaff",
+    backgroundColor: "#F7EEFF",
     flex: 1,
   },
 });

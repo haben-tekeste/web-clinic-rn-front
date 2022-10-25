@@ -107,7 +107,7 @@ export default () => {
 
 const ScheduleStyle = StyleSheet.create({
   container: {
-    backgroundColor: "#fcfaff",
+    backgroundColor: "#F7EEFF",
     flex: 1,
   },
   heading: {

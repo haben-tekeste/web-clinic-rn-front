@@ -39,7 +39,7 @@ export default () => {
         options={{
           headerTitle: "",
           headerStyle: {
-            backgroundColor: "#fcfaff",
+            backgroundColor: "#F7EEFF",
           },
           headerShadowVisible: false,
           headerTintColor: "black",
@@ -51,7 +51,7 @@ export default () => {
         options={{
           headerTitle: "",
           headerStyle: {
-            backgroundColor: "#fcfaff",
+            backgroundColor: "#F7EEFF",
           },
           headerShadowVisible: false,
           headerTintColor: "black",
