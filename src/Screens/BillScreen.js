@@ -24,6 +24,12 @@ export default ({ navigation }) => {
     data.unshift(temp);
     setData([...data]);
   };
+
+  const onDeleteCard = () => {
+    let temp = data.pop();
+    setData([...data]);
+  };
+
   return (
     <View style={BillStyle.container}>
       <View style={{ width, alignItems: "center" }}>
@@ -99,7 +105,7 @@ export default ({ navigation }) => {
         <TabView.Item style={{ width }}>
           <>
             <View style={{ position: "relative", top: 0 }}>
-              {data.map((item) => {
+              {data.map((item, index) => {
                 return (
                   <BillCardComponent
                     key={item.name}
@@ -110,7 +116,7 @@ export default ({ navigation }) => {
                 );
               })}
             </View>
-            <CardSettings />
+            <CardSettings onDeleteCard={onDeleteCard} />
           </>
         </TabView.Item>
         <TabView.Item style={{ width }}>

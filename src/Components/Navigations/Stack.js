@@ -5,6 +5,7 @@ import SignupScreen from "../../Screens/SignupScreen";
 import Drawer from "./Drawer";
 import DoctorDetails from "../../Screens/DoctorDetails";
 import DoctorsList from "../../Screens/DoctorsList";
+import UpdateProfileScree from "../../Screens/UpdateProfileScree";
 
 export default () => {
   const Stack = createNativeStackNavigator();
@@ -48,6 +49,18 @@ export default () => {
       <Stack.Screen
         name="DoctorsList"
         component={DoctorsList}
+        options={{
+          headerTitle: "",
+          headerStyle: {
+            backgroundColor: "#F7EEFF",
+          },
+          headerShadowVisible: false,
+          headerTintColor: "black",
+        }}
+      />
+      <Stack.Screen
+        name="UpdateProfile"
+        component={UpdateProfileScree}
         options={{
           headerTitle: "",
           headerStyle: {
