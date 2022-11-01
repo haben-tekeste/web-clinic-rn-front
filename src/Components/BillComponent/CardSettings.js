@@ -7,7 +7,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import Spacer from "../../Components/Spacer";
-export default () => {
+export default ({ onDeleteCard }) => {
   const { width, height } = useWindowDimensions();
   return (
     <View
@@ -25,8 +25,8 @@ export default () => {
           justifyContent: "space-between",
         }}
       >
-        <TouchableOpacity>
-          <Text style={{ color: "#AEAEAE" }}>Edit card info</Text>
+        <TouchableOpacity onPress={onDeleteCard}>
+          <Text style={{ color: "#AEAEAE" }}>Delete card</Text>
         </TouchableOpacity>
         <TouchableOpacity>
           <Text style={{ color: "#AEAEAE" }}>+ Add another card</Text>

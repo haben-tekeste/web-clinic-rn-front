@@ -116,6 +116,7 @@ const CredentialsStyle = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     paddingHorizontal: 40,
+    backgroundColor: "#F7EEFF",
   },
   image: {
     position: "absolute",

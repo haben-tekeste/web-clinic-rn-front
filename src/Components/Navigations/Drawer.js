@@ -1,6 +1,5 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Tab from "./Tab";
 import {
   FontAwesome,
   FontAwesome5,
@@ -15,6 +14,7 @@ import CustomDrawer from "./CustomDrawer";
 import { TouchableOpacity } from "react-native";
 import TopTab from "./TopTab";
 import HomeScreen from "../../Screens/HomeScreen";
+import AccountScreen from "../../Screens/AccountScreen";
 export default () => {
   const Drawer = createDrawerNavigator();
   return (
@@ -103,7 +103,7 @@ export default () => {
       />
       <Drawer.Screen
         name="Profile"
-        component={Tab}
+        component={AccountScreen}
         options={{
           headerTitle: "",
           headerStyle: { backgroundColor: "#F7EEFF" },
