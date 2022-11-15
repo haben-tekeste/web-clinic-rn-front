@@ -2,7 +2,7 @@ import React from "react";
 import { useWindowDimensions } from "react-native";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-export default ({ IconName, icon, text }) => {
+export default ({ IconName, icon, text, navigation }) => {
   const { width } = useWindowDimensions();
   return (
     <View
@@ -14,6 +14,7 @@ export default ({ IconName, icon, text }) => {
       }}
     >
       <TouchableOpacity
+        onPress={() => navigation.navigate("Schedule", { screen: "Completed" })}
         style={{
           paddingVertical: 20,
           flexDirection: "row",
