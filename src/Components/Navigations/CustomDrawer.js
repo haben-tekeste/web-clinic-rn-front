@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -10,9 +10,13 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUser } from "../../app/features/User/UserSlice";
 
 export default (props) => {
-  const { width, height } = useWindowDimensions();
+  const { user } = useSelector((state) => state.user);
+  const { email, name } = user.data;
+
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView>
@@ -38,10 +42,8 @@ export default (props) => {
           style={{ height: 100, width: 100 }}
         />
         <View>
-          <Text style={{ fontWeight: "bold", fontSize: 20 }}>Some One</Text>
-          <Text style={{ fontWeight: "light", color: "#AEAEAE" }}>
-            fake.email@gmail.com
-          </Text>
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>{name}</Text>
+          <Text style={{ fontWeight: "light", color: "#AEAEAE" }}>{email}</Text>
         </View>
       </View>
     </View>

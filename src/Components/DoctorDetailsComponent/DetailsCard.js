@@ -7,9 +7,11 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+
 import { LinearGradient } from "expo-linear-gradient";
 
-export default ({ width, height }) => {
+export default ({ width, height, doctor }) => {
   return (
     <View style={{ alignItems: "center" }}>
       <LinearGradient
@@ -34,15 +36,17 @@ export default ({ width, height }) => {
           }}
         >
           <Image
-            source={require("../../Images/avatar.png")}
-            style={{ width: 120, height: 120 }}
+            source={{
+              uri: `https://b01c-195-229-151-165.ap.ngrok.io/${doctor.img}`,
+            }}
+            style={{ width: 130, height: 130, borderRadius: 130 / 2 }}
           />
         </ImageBackground>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <Text
             style={{ fontSize: 18, fontWeight: "bold", fontFamily: "serif" }}
           >
-            Dr. Ferid Amir
+            Dr. {doctor.name}
           </Text>
           <Text
             style={{
@@ -52,7 +56,7 @@ export default ({ width, height }) => {
               color: "#AEAEAE",
             }}
           >
-            Psychatrist
+            {doctor.speciality}
           </Text>
         </View>
         <View
@@ -62,29 +66,25 @@ export default ({ width, height }) => {
             position: "absolute",
             bottom: 0,
             marginBottom: 25,
+            flexDirection: "row",
           }}
         >
-          <TouchableOpacity
+          <AntDesign
+            name="star"
+            size={24}
+            color="#f4c58b"
+            style={{ marginHorizontal: 5 }}
+          />
+          <Text
             style={{
-              ...DetailsStyle.cardBtnStyle,
-              width: width / 1.5,
-              borderColor: "#AEAEAE",
-              borderWidth: 1,
+              marginHorizontal: 5,
+              fontFamily: "serif",
+              fontWeight: "bold",
+              color: "black",
             }}
           >
-            <Text>Join Live Chat</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              ...DetailsStyle.cardBtnStyle,
-              width: width / 1.5,
-              backgroundColor: "#640F82",
-            }}
-          >
-            <Text style={{ color: "white", fontWeight: "400" }}>
-              Start Conversation
-            </Text>
-          </TouchableOpacity>
+            {doctor.rating} / {doctor.numberOfVotes} voters
+          </Text>
         </View>
       </LinearGradient>
     </View>

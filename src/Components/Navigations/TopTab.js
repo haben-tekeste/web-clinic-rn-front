@@ -44,6 +44,7 @@ export default () => {
         },
         tabBarActiveTintColor: "white",
         tabBarPressColor: "white",
+        swipeEnabled: false,
       }}
     >
       <Tab.Screen name="Upcoming" component={ScheduleScreen} />

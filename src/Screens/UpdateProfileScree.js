@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity, useWindowDimensions } from "react-native";
 import {
   View,
@@ -11,8 +11,11 @@ import Avatar from "../Components/AccountComponent/Avatar";
 import UpdateInput from "../Components/AccountComponent/UpdateInput";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default ({ navigation }) => {
+export default ({ navigation, route }) => {
   const { width, height } = useWindowDimensions();
+  const { userName, userEmail } = route.params;
+  const [name, setName] = useState(userName);
+  const [email, setEmail] = useState(userEmail);
   return (
     <KeyboardAvoidingView style={{ flex: 1 }}>
       <ScrollView
@@ -28,8 +31,8 @@ export default ({ navigation }) => {
           }}
         >
           <View>
-            <UpdateInput icon="email-outline" val="mr.haben.k@gmail.com" />
-            <UpdateInput icon="account" val="Haben Tekeste" />
+            <UpdateInput icon="email-outline" val={userEmail} />
+            <UpdateInput icon="account" val={userName} />
           </View>
           <View style={{ alignItems: "center" }}>
             <TouchableOpacity

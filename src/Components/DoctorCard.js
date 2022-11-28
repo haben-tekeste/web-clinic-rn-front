@@ -15,13 +15,15 @@ const DoctorCard = ({ item }) => {
       }}
     >
       <Image
-        source={require("../../assets/femaleDoctor.png")}
+        source={{
+          uri: `https://b01c-195-229-151-165.ap.ngrok.io/${item.img}`,
+        }}
         style={DoctorStyles.img}
       />
       <View style={{ ...DoctorStyles.tag, height: height / 12, padding: 10 }}>
         <Text style={{ fontWeight: "bold" }}>Dr.{item.name}</Text>
         <Text style={{ color: "#AEAEAE", fontWeight: "bold" }}>
-          {item.position}
+          {item.speciality}
         </Text>
         <View style={{ flexDirection: "row", ...DoctorStyles.badge }}>
           <AntDesign
@@ -37,7 +39,7 @@ const DoctorCard = ({ item }) => {
               fontWeight: "bold",
             }}
           >
-            4.5
+            {item.rating}
           </Text>
         </View>
       </View>
@@ -49,11 +51,11 @@ const DoctorStyles = StyleSheet.create({
   img: {
     width: 200,
     height: 220,
+    borderRadius: 15,
   },
   card: {
     marginHorizontal: 20,
     borderColor: "red",
-    borderRadius: 15,
     position: "relative",
   },
   tag: {

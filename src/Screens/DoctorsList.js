@@ -1,109 +1,90 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Text,
   View,
-  Button,
   StyleSheet,
-  FlatList,
-  Image,
+  useWindowDimensions,
   ScrollView,
+  LogBox,
 } from "react-native";
 import { SafeAreaView } from "react-native";
 import Spacer from "../Components/Spacer";
-import { AntDesign } from "@expo/vector-icons";
+import Lottie from "lottie-react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllDoctors } from "../app/features/Doctor/DoctorSlice";
+import AllDoctorsList from "../Components/DoctorDetailsComponent/AllDoctorsList";
+const DoctorsList = ({ route }) => {
+  const { width, height } = useWindowDimensions();
+  const { isLoading, doctors } = useSelector((state) => state.doctor);
 
-const DoctorsList = () => {
-  const doctorsData = [
-    {
-      name: "Elizabeth",
-      position: "Psychatrist",
-      rating: 4.2,
-      src: "shorturl.at/uvEPR",
-      color: "#dcbbfa",
-    },
-    {
-      name: "Gordon",
-      position: "Neurologist",
-      rating: 4.5,
-      src: "shorturl.at/cituw",
-      color: "#e2ffe9",
-    },
-    {
-      name: "Ferid ",
-      position: "Cardiologist",
-      rating: 4,
-      src: "shorturl.at/BE345",
-      color: "#dff7ff",
-    },
-    {
-      name: "Samuel ",
-      position: "Dentist",
-      rating: 4,
-      src: "shorturl.at/BE345",
-      color: "#dff7ff",
-    },
-    {
-      name: "Henos ",
-      position: "Pulmonologist",
-      rating: 4,
-      src: "shorturl.at/BE345",
-      color: "#dff7ff",
-    },
-    {
-      name: "Beyene",
-      position: "Nephrology",
-      rating: 4,
-      src: "shorturl.at/BE345",
-      color: "#dff7ff",
-    },
-  ];
+  const dispatch = useDispatch();
+  const routeData = route.params;
+  const { allDoctors } = doctors;
+  let filteredDoctors;
+  useEffect(() => {
+    dispatch(fetchAllDoctors());
+    LogBox.ignoreLogs(["VirtualizedLists should never be nested"]);
+  }, []);
+  if (routeData) {
+    if (routeData.category) {
+      filteredDoctors = allDoctors.filter(
+        (doc) => doc.speciality === routeData.category
+      );
+    } else {
+      filteredDoctors = allDoctors.filter(
+        (doc) => doc.name.toLowerCase() === routeData.term.toLowerCase()
+      );
+    }
+  } else {
+    filteredDoctors = allDoctors;
+  }
+
+  console.log(filteredDoctors);
   return (
-    <SafeAreaView>
-      <View style={{ backgroundColor: "#F7EEFF", height: "100%" }}>
-        {/* <Text style={{ fontSize: "22", textAlign: "center",marginTop:6 }}>
-          Doctors List
-        </Text> */}
-        <Spacer />
-        <View style={styles.listcontainer}>
-          <FlatList
-            data={doctorsData}
-            keyExtractor={(item) => item.name}
-            renderItem={({ item }) => (
-              <View style={styles.card}>
-                <Image
-                  style={styles.img}
-                  source={require("../../assets/doctor.png")}
-                />
-                <View
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1, backgroundColor: "#F7EEFF" }}>
+        <View style={{ backgroundColor: "#F7EEFF", height: "100%" }}>
+          {isLoading || (
+            <Text style={{ fontSize: 22, textAlign: "center", marginTop: 6 }}>
+              Doctors List
+            </Text>
+          )}
+          <Spacer />
+          {isLoading ? (
+            <>
+              <View
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  height,
+                  backgroundColor: "white",
+                }}
+              >
+                <Lottie
+                  source={require("../../assets/99947-loader.json")}
+                  autoPlay
+                  loop={false}
                   style={{
-                    flexDirection: "row",
-                    justifyContent: "space-around",
-                    width: "80%",
+                    height: 180,
+                    width: 180,
+                    marginTop: 150,
                   }}
-                >
-                  <View style={styles.textContainer}>
-                    <Text style={{ fontSize: 20 }}>{item.name}</Text>
-                    <Text style={{ color: "#AEAEAE" }}>{item.position}</Text>
-                  </View>
-                  <View style={styles.ratings}>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <AntDesign name="star" size={24} color="#f4c58b" />
-                      <Text style={{ marginLeft: 5 }}>{item.rating}</Text>
-                    </View>
-                    <Button title="Book Now" />
-                  </View>
-                </View>
+                />
               </View>
-            )}
-          />
+            </>
+          ) : (
+            <View style={styles.listcontainer}>
+              {filteredDoctors.length === 0 ? (
+                <Text style={{ color: "red", textAlign: "center" }}>
+                  Sorry Nothing To Show
+                </Text>
+              ) : (
+                <AllDoctorsList allDoctors={filteredDoctors} />
+              )}
+            </View>
+          )}
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -111,33 +92,6 @@ const DoctorsList = () => {
 const styles = StyleSheet.create({
   listcontainer: {
     marginTop: 6,
-  },
-  card: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    padding: 8,
-    marginHorizontal: 12,
-    marginBottom: 18,
-    borderRadius: 10,
-    backgroundColor: "#fff",
-    shadowColor: "#171717",
-    shadowOffset: {
-      width: -2,
-      height: 4,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-  },
-  img: {
-    width: 70,
-    height: 70,
-    borderRadius: 50,
-    borderWidth: 2,
-    borderColor: "#ddd",
-  },
-  ratings: {
-    justifyContent: "center",
   },
 });
 

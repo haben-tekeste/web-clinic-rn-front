@@ -3,8 +3,8 @@ import { TouchableOpacity, useWindowDimensions } from "react-native";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
-export default ({ navigation }) => {
-  const { width, height } = useWindowDimensions();
+export default ({ navigation, userName, userEmail }) => {
+  const { width } = useWindowDimensions();
   const { name } = useRoute();
   const isProfile = name === "Profile" ? true : false;
   return (
@@ -32,7 +32,9 @@ export default ({ navigation }) => {
         />
         {isProfile && (
           <TouchableOpacity
-            onPress={() => navigation.navigate("UpdateProfile")}
+            onPress={() =>
+              navigation.navigate("UpdateProfile", { userName, userEmail })
+            }
             style={{
               position: "absolute",
               bottom: 0,
@@ -50,11 +52,9 @@ export default ({ navigation }) => {
       </ImageBackground>
       {isProfile && (
         <View style={{ alignItems: "center", marginTop: 20 }}>
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-            Haben Tekeste
-          </Text>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>{userName}</Text>
           <Text style={{ fontSize: 15, color: "gray", fontWeight: "light" }}>
-            mr.haben.t@gmail.com
+            {userEmail}
           </Text>
         </View>
       )}

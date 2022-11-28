@@ -1,4 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
+import { useRoute } from "@react-navigation/native";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  signupUser,
+  signinUser,
+  clearErr,
+} from "../app/features/Auth/AuthSlice";
+import Lottie from "lottie-react-native";
+
 import {
   View,
   StyleSheet,
@@ -9,11 +18,37 @@ import {
 } from "react-native";
 import { Text, Button } from "@rneui/themed";
 import Spacer from "./Spacer";
-import { Entypo, AntDesign } from "@expo/vector-icons";
+import { Entypo, AntDesign, Ionicons } from "@expo/vector-icons";
 import { KeyboardAvoidingView } from "react-native";
 
 export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
   const [show, setShow] = useState(true);
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const route = useRoute();
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.auth);
+
+  useLayoutEffect(() => {
+    const nav = navigation.addListener("focus", () => {
+      dispatch(clearErr());
+    });
+  }, []);
+
+  const signUPIn = (obj = { name, password, email }) => {
+    if (route.name === "Sign-up") {
+      dispatch(signupUser(obj));
+      setName("");
+      setEmail("");
+      setPassword("");
+    } else if (route.name === "Sign-in") {
+      dispatch(signinUser({ email, password }));
+      setEmail("");
+      setPassword("");
+    }
+  };
+
   return (
     <KeyboardAvoidingView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flex: 1 }}>
@@ -40,6 +75,55 @@ export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
           <Spacer />
           <Spacer />
           <Spacer />
+          {data.error && (
+            <View
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ color: "red" }}>{data.error}</Text>
+              <Spacer />
+              <Spacer />
+            </View>
+          )}
+          {data.isLoading && (
+            <View
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Lottie
+                source={require("../../assets/99947-loader.json")}
+                autoPlay
+                loop={false}
+                onAnimationFinish={() => navigate("Sign-in")}
+                style={{ backgroundColor: "#F7EEFF", width: 100, height: 100 }}
+              />
+            </View>
+          )}
+          {route.name === "Sign-up" && (
+            <>
+              <View style={CredentialsStyle.inputViewStyle}>
+                <Ionicons name="person" size={24} color="#AEAEAE" />
+                <TextInput
+                  placeholder="Enter Your Name"
+                  style={CredentialsStyle.inputStyle}
+                  onFocus={() => {
+                    setShow(false);
+                  }}
+                  onEndEditing={() => {
+                    setShow(true);
+                  }}
+                  value={name}
+                  onChangeText={setName}
+                />
+              </View>
+              <Spacer />
+              <Spacer />
+            </>
+          )}
           <View style={CredentialsStyle.inputViewStyle}>
             <Entypo name="mail" size={30} color="#AEAEAE" />
             <TextInput
@@ -51,6 +135,8 @@ export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
               onEndEditing={() => {
                 setShow(true);
               }}
+              value={email}
+              onChangeText={setEmail}
             />
           </View>
           <Spacer />
@@ -67,10 +153,13 @@ export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
               onEndEditing={() => {
                 setShow(true);
               }}
+              value={password}
+              onChangeText={setPassword}
             />
           </View>
           <Spacer />
           <Spacer />
+
           <View
             style={{
               paddingLeft: 150,
@@ -80,7 +169,7 @@ export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
               style={CredentialsStyle.signBtnStyle}
               color="#9600F1"
               radius="md"
-              onPress={() => navigation.navigate("HomeScreen")}
+              onPress={() => signUPIn({ name, password, email })}
             >
               Sign {sign}
               <AntDesign
@@ -93,7 +182,6 @@ export default ({ navigation, navigate, sign, header, subHeader, goto }) => {
           </View>
           <Spacer />
           <Spacer />
-
           <TouchableOpacity
             style={{ paddingLeft: 50 }}
             onPress={() => navigation.navigate(navigate)}

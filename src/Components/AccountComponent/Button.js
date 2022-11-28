@@ -2,8 +2,18 @@ import React from "react";
 import { useWindowDimensions } from "react-native";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { navigate } from "../../NavigationRoute";
 export default ({ IconName, icon, text, navigation }) => {
   const { width } = useWindowDimensions();
+  const onClickHandler = async () => {
+    if (text === "History") {
+      navigation.navigate("Schedule", { screen: "Completed" });
+    } else if (text === "Logout") {
+      await AsyncStorage.removeItem("token");
+      navigate("Sign-in");
+    }
+  };
   return (
     <View
       style={{
@@ -14,7 +24,7 @@ export default ({ IconName, icon, text, navigation }) => {
       }}
     >
       <TouchableOpacity
-        onPress={() => navigation.navigate("Schedule", { screen: "Completed" })}
+        onPress={onClickHandler}
         style={{
           paddingVertical: 20,
           flexDirection: "row",

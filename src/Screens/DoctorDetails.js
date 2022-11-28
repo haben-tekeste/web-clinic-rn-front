@@ -1,102 +1,139 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ScrollView,
   View,
   Text,
   StyleSheet,
   useWindowDimensions,
-  FlatList,
   TouchableOpacity,
+  Alert,
 } from "react-native";
+import Lottie from "lottie-react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDoctor } from "../app/features/Doctor/DoctorSlice";
 import DaysComponent from "../Components/DoctorDetailsComponent/DaysComponent";
 import DetailsCard from "../Components/DoctorDetailsComponent/DetailsCard";
 import DropDown from "../Components/DoctorDetailsComponent/dropDown";
 import WorkingHoursComponent from "../Components/DoctorDetailsComponent/WorkingHoursComponent";
+import api from "../api/api";
+import { getDate, getMonth, TIME } from "../util";
 
-const getDate = (mon) => {
-  const year = new Date().getFullYear();
-  const month = [
-    "Jan, " + year,
-    "Feb, " + year,
-    "Mar, " + year,
-    "Apr, " + year,
-    "May, " + year,
-    "Jun, " + year,
-    "Jul, " + year,
-    "Aug, " + year,
-    "Sep, " + year,
-    "Oct, " + year,
-    "Nov, " + year,
-    "Dec, " + year,
-  ];
-  const lastDate = Array(new Date(year, mon + 1, 0).getDate()).keys();
-  const dates = Array.from(lastDate);
-
-  return { month, year, dates: dates.map((date, index) => date + 1) };
-};
-
-const getMonth = () => {
-  return new Date().getMonth();
-};
-
-const TIME = [
-  "10:00",
-  "11:00",
-  "12:00",
-  "14:00",
-  "15:00",
-  "16:00",
-  "17:00",
-  "18:00",
-];
-
-export default ({ navigation }) => {
+export default ({ navigation, route }) => {
   const { width, height } = useWindowDimensions();
   const [selectMonth, setSelectMonth] = useState(getMonth());
-  const { month, year } = getDate(getMonth());
+  const { month, monthFromCurrent, year } = getDate(getMonth());
   const { dates } = getDate(selectMonth);
   const defaultMonth = month[selectMonth];
-
+  const { doctorId } = route.params;
+  const [selectedDay, setSelectedDay] = useState("");
+  const [selectedHour, setSelectedHour] = useState("");
   const onSetSelectMonth = (index) => {
-    setSelectMonth(index);
+    setSelectMonth(index + getMonth());
   };
+  const { isLoading, doctors } = useSelector((state) => state.doctor);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchDoctor(doctorId));
+  }, []);
+  const { doctor } = doctors;
+
+  const handleBooking = async () => {
+    if (!selectedDay || !selectedHour) return;
+    let currentMonth = +selectMonth + 1;
+    const stringDay =
+      "2022/" +
+      currentMonth +
+      "/" +
+      selectedDay +
+      " " +
+      selectedHour +
+      ":00 GMT";
+    const date = new Date(Date.parse(stringDay));
+    try {
+      await api.post("/patient/appointment", { doctorId, date });
+      Alert.alert("Success", "Appointment booked successfully", [
+        { text: "OK", onPress: () => navigation.navigate("Upcoming") },
+      ]);
+    } catch (err) {
+      Alert.alert("Error", err.response.data.message, [{ text: "OK" }]);
+    }
+  };
+
   return (
     <ScrollView style={DetailsStyle.container}>
-      <DetailsCard width={width} height={height} />
-      <DropDown
-        month={month}
-        width={width}
-        height={height}
-        year={year}
-        defaultMonth={defaultMonth}
-        onSetSelectMonth={onSetSelectMonth}
-      />
-      <DaysComponent
-        year={year}
-        selectMonth={selectMonth}
-        dates={dates}
-        width={width}
-      />
-
-      <WorkingHoursComponent Data={TIME} width={width} />
-      <View style={{ alignItems: "center", marginTop: 25 }}>
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#640F82",
-            width: width / 1.75,
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 15,
-            borderRadius: 12,
-          }}
-        >
-          <Text
-            style={{ color: "white", fontWeight: "bold", fontFamily: "serif" }}
+      {isLoading ? (
+        <>
+          <View
+            style={{
+              display: "flex",
+              alignItems: "center",
+              height,
+              backgroundColor: "white",
+            }}
           >
-            Book Appointment
-          </Text>
-        </TouchableOpacity>
-      </View>
+            <Lottie
+              source={require("../../assets/99947-loader.json")}
+              autoPlay
+              loop={false}
+              style={{
+                height: 180,
+                width: 180,
+                marginTop: 150,
+              }}
+            />
+          </View>
+        </>
+      ) : (
+        <>
+          <DetailsCard width={width} height={height} doctor={doctor} />
+          <DropDown
+            month={monthFromCurrent}
+            width={width}
+            height={height}
+            year={year}
+            defaultMonth={defaultMonth}
+            onSetSelectMonth={onSetSelectMonth}
+          />
+          <DaysComponent
+            year={year}
+            selectMonth={selectMonth}
+            dates={dates}
+            width={width}
+            selectedDay={selectedDay}
+            setSelectedDay={setSelectedDay}
+          />
+
+          <WorkingHoursComponent
+            Data={TIME}
+            width={width}
+            selectedHour={selectedHour}
+            setSelectedHour={setSelectedHour}
+          />
+          <View style={{ alignItems: "center", marginTop: 25 }}>
+            <TouchableOpacity
+              style={{
+                backgroundColor: "#640F82",
+                width: width / 1.75,
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 15,
+                borderRadius: 12,
+              }}
+              onPress={handleBooking}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  fontFamily: "serif",
+                }}
+              >
+                Book Appointment
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </>
+      )}
     </ScrollView>
   );
 };

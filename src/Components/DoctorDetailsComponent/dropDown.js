@@ -5,9 +5,7 @@ import { Entypo } from "@expo/vector-icons";
 
 export default ({
   month,
-  width,
-  height,
-  year,
+
   defaultMonth,
   onSetSelectMonth,
 }) => {

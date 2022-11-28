@@ -8,7 +8,7 @@ const getDay = (year, month, date) => {
   return weekday[day];
 };
 
-export default ({ dates, year, selectMonth, width }) => {
+export default ({ dates, year, selectMonth, width, selectedDay, setSelectedDay }) => {
   return (
     <View style={{ marginBottom: 20 }}>
       <FlatList
@@ -18,29 +18,24 @@ export default ({ dates, year, selectMonth, width }) => {
         keyExtractor={(item) => item}
         renderItem={({ item, index }) => {
           return (
-            <TouchableOpacity onPress={() => console.log("Hi")}>
+            <TouchableOpacity onPress={() => setSelectedDay(item)}>
               <View
                 style={{
                   width: width / 5,
                   height: width / 4,
-                  borderWidth: item % 3 === 0 ? 1 : null,
-                  borderColor: "#640F82",
+                  borderColor: "#c",
                   marginLeft: 30,
                   marginRight: index === dates.length - 1 ? 30 : null,
                   borderRadius: 15,
-                  backgroundColor:
-                    item % 3 && item !== 7
-                      ? "#DAD4DD"
-                      : item === 7
-                      ? "#d19aed"
-                      : "#FFFFFF",
+                  backgroundColor: "#DAD4DD",
                   alignItems: "center",
                   justifyContent: "space-around",
+                  backgroundColor: item === selectedDay ? "#dbafed": '#DAD4DD'
                 }}
               >
                 <Text
                   style={{
-                    color: item === 7 ? "white" : "black",
+                    color: item === selectedDay ? "white" : "black",
                     fontFamily: "serif",
                     fontSize: 25,
                   }}
@@ -52,7 +47,7 @@ export default ({ dates, year, selectMonth, width }) => {
                     fontWeight: "bold",
                     fontFamily: "serif",
                     fontSize: 15,
-                    color: item === 7 ? "white" : "black",
+                    color: item === selectedDay ? "white" : "black",
                   }}
                 >
                   {getDay(year, selectMonth, item)}

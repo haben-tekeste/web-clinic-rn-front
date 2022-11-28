@@ -10,13 +10,33 @@ const ImageCards = ({ item }) => {
         ...ImagesCardsStyles.imgContainer,
         backgroundColor: item.color,
         height: width / 3.5,
-        width: width / 3.5,
+        width: width / 3.2,
       }}
     >
-      <Image
-        source={require(`../../assets/brain.png`)}
-        style={ImagesCardsStyles.image}
-      />
+      <>
+        {item.src === "brain.png" ? (
+          <Image
+            source={require("../../assets/brain.png")}
+            style={ImagesCardsStyles.image}
+          />
+        ) : item.src === "heart.png" ? (
+          <Image
+            source={require("../../assets/heart.png")}
+            style={ImagesCardsStyles.image}
+          />
+        ) : item.src === "tooth.png" ? (
+          <Image
+            source={require("../../assets/tooth.png")}
+            style={ImagesCardsStyles.image}
+          />
+        ) : (
+          <Image
+            source={require("../../assets/eye-ball.png")}
+            style={ImagesCardsStyles.image}
+          />
+        )}
+      </>
+
       <Text style={{ fontWeight: "bold", fontFamily: "serif" }}>
         {item.title}
       </Text>
