@@ -22,7 +22,7 @@ export default ({ allDoctors }) => {
           <Image
             style={styles.img}
             source={{
-              uri: `https://b01c-195-229-151-165.ap.ngrok.io/${item.img}`,
+              uri: `https://f6d8-195-229-151-165.ap.ngrok.io/${item.img}`,
             }}
           />
           <View

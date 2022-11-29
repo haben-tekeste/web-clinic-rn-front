@@ -37,7 +37,7 @@ export default ({ width, height, doctor }) => {
         >
           <Image
             source={{
-              uri: `https://b01c-195-229-151-165.ap.ngrok.io/${doctor.img}`,
+              uri: `https://f6d8-195-229-151-165.ap.ngrok.io/${doctor.img}`,
             }}
             style={{ width: 130, height: 130, borderRadius: 130 / 2 }}
           />

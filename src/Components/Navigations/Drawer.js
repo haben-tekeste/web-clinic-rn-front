@@ -57,7 +57,7 @@ export default () => {
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Inbox Screen"
         component={InboxScreen}
         options={{
@@ -67,7 +67,7 @@ export default () => {
             <FontAwesome5 name="envelope-open-text" size={24} color={color} />
           ),
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="Schedule"
         component={TopTab}
@@ -79,7 +79,7 @@ export default () => {
           ),
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Prescription Screen"
         component={PrescriptionScreen}
         options={{
@@ -89,7 +89,7 @@ export default () => {
             <MaterialCommunityIcons name="bandage" size={24} color={color} />
           ),
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="Bills"
         component={BillScreen}

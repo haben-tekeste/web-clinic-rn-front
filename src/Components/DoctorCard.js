@@ -16,7 +16,7 @@ const DoctorCard = ({ item }) => {
     >
       <Image
         source={{
-          uri: `https://b01c-195-229-151-165.ap.ngrok.io/${item.img}`,
+          uri: `https://f6d8-195-229-151-165.ap.ngrok.io/${item.img}`,
         }}
         style={DoctorStyles.img}
       />

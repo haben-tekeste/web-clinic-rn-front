@@ -44,13 +44,13 @@ const ScheduleCard = ({
     } else if (routeName === "Completed") {
       try {
         const { data } = await api.get(
-          "https://66d5-195-229-151-165.ap.ngrok.io/patient/check-prescription/" +
+          "https://f6d8-195-229-151-165.ap.ngrok.io/patient/check-prescription/" +
             details.appointmentId
         );
 
         if (!data.success) throw new Error();
         await Linking.openURL(
-          "https://66d5-195-229-151-165.ap.ngrok.io/patient/prescription/" +
+          "https://f6d8-195-229-151-165.ap.ngrok.io/patient/prescription/" +
             details.appointmentId
         );
       } catch (err) {
@@ -116,7 +116,7 @@ const ScheduleCard = ({
         <Image
           style={cardStyles.img}
           source={{
-            uri: `https://b01c-195-229-151-165.ap.ngrok.io/${details.img}`,
+            uri: `https://f6d8-195-229-151-165.ap.ngrok.io/${details.img}`,
           }}
         />
       </View>
